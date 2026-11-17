@@ -3,8 +3,8 @@
 
 ## Student Details
 - **Name:** Navya P Shetty
-- **USN:** [Enter your USN]
-- **College:** [Enter your College Name]
+- **USN:** [1MS23IS075]
+- **College:** [MS RAMAIAH INSTITUTE OF TECHNOLOGY]
 - **Subject:** Software Testing
 
 ## Project Title
