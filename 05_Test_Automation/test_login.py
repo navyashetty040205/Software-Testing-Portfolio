@@ -1,47 +1,61 @@
+"""Original SauceDemo login demonstration.
+
+Run it directly with: python test_login.py
+The larger pytest suite lives in the tests folder. This file is unchanged in
+behaviour: it opens Chrome, logs in as standard_user, and prints the result.
+The code is under a main guard so importing the file does not launch a browser.
+"""
+
 import time
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
-# Launch Chrome
-driver = webdriver.Chrome()
 
-try:
-    # Open SauceDemo website
-    driver.get("https://www.saucedemo.com/")
+def main():
+    # Launch Chrome
+    driver = webdriver.Chrome()
 
-    # Maximize browser window
-    driver.maximize_window()
+    try:
+        # Open SauceDemo website
+        driver.get("https://www.saucedemo.com/")
 
-    # Enter valid username
-    driver.find_element(By.ID, "user-name").send_keys("standard_user")
+        # Maximize browser window
+        driver.maximize_window()
 
-    # Enter valid password
-    driver.find_element(By.ID, "password").send_keys("secret_sauce")
+        # Enter valid username
+        driver.find_element(By.ID, "user-name").send_keys("standard_user")
 
-    # Click login button
-    driver.find_element(By.ID, "login-button").click()
+        # Enter valid password
+        driver.find_element(By.ID, "password").send_keys("secret_sauce")
 
-    # Wait until Products page loads
-    WebDriverWait(driver, 10).until(
-        EC.url_contains("inventory.html")
-    )
+        # Click login button
+        driver.find_element(By.ID, "login-button").click()
 
-    # Verify login result
-    if "inventory.html" in driver.current_url:
-        print("TEST PASSED: Login successful!")
-        print("Products page opened successfully.")
+        # Wait until Products page loads
+        WebDriverWait(driver, 10).until(
+            EC.url_contains("inventory.html")
+        )
 
-        # Keep Chrome open for 5 seconds
-        time.sleep(5)
+        # Verify login result
+        if "inventory.html" in driver.current_url:
+            print("TEST PASSED: Login successful!")
+            print("Products page opened successfully.")
 
-    else:
-        print("TEST FAILED: Login unsuccessful.")
+            # Keep Chrome open for 5 seconds
+            time.sleep(5)
 
-except Exception as e:
-    print("TEST FAILED:", e)
+        else:
+            print("TEST FAILED: Login unsuccessful.")
 
-finally:
-    # Close browser after test execution
-    driver.quit()
+    except Exception as e:
+        print("TEST FAILED:", e)
+
+    finally:
+        # Close browser after test execution
+        driver.quit()
+
+
+if __name__ == "__main__":
+    main()
