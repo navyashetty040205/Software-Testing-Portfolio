@@ -1,16 +1,23 @@
 
-# TEST EXECUTION REPORT
+# Test Execution Report
 
 ## 1. Introduction
-This document records the manual testing activities performed on the SauceDemo online shopping application.
+
+This report distinguishes the recorded manual test run from the later Selenium
+automation run. Their results are separate and should not be combined into one
+pass percentage.
 
 ## 2. Testing Environment
+
 - Application: SauceDemo
 - Website: https://www.saucedemo.com/
 - Browser: Google Chrome
-- Testing Type: Manual Functional Testing
+- Automation: Python, Selenium WebDriver, and pytest
 
-## 3. Test Execution Results
+## 3. Manual Test Execution
+
+The following results are retained from the manual execution record. The date
+of that run was not recorded.
 
 ### A. Shopping Workflow Testing
 
@@ -41,22 +48,26 @@ This document records the manual testing activities performed on the SauceDemo o
 | BVA03 | Empty last name | Last Name is required | PASS |
 | BVA05 | Empty postal code | Postal Code is required | PASS |
 
-## 4. Test Execution Summary
+**Manual run summary:** 14 recorded test cases; 14 passed; 0 failed.
 
-- Total test cases executed: 14
-- Passed: 14
-- Failed: 0
-- Pass Percentage: 100%
+## 4. Automated Test Execution
 
-## 5. Observations
-1. Valid login credentials successfully opened the products page.
-2. Invalid login credentials displayed an appropriate error message.
-3. Empty login fields displayed validation messages.
-4. Products were successfully added to the shopping cart.
-5. Checkout validation correctly identified missing information.
-6. The order confirmation page appeared after completing checkout.
+The pytest suite was run on 2026-11-18.
 
-## 6. Conclusion
-The manual testing of the SauceDemo online shopping application was performed successfully.
+| Metric | Result |
+|---|---:|
+| Tests collected | 57 |
+| Passed | 56 |
+| Failed | 1 |
 
-All 14 executed test cases passed during the testing session. The application behaved as expected for the tested scenarios.
+The failed test was `test_PROD010_problem_user_images`. For the SauceDemo `problem_user`
+account, all six product images showed the same missing-image placeholder. The
+test failure is documented in [the defect report](../04_Defect_Reports/Defect_Report.md),
+and evidence is saved as [08_problem_user_images.png](../07_Screenshots/08_problem_user_images.png).
+
+## 5. Summary
+
+The recorded manual scenarios passed. The automated suite found an image issue
+for the `problem_user` account, so the overall testing outcome is **not a clean
+pass**. The manual and automated results are from separate runs and have
+different scopes.

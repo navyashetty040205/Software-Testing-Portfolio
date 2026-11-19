@@ -1,34 +1,50 @@
 # Defect Report
 
 ## Project Details
+
 - **Project:** Software Testing of an Online Shopping Application
 - **Application:** SauceDemo
-- **Testing Type:** Manual Testing
-- **Tester:** Navya P Shetty
+- **Testing type:** Selenium automation
 
 ## Defect Summary
 
-During the execution of the selected test scenarios, no defects were observed.
+### DEF-001: Product images are missing for the `problem_user` account
 
-All tested functionalities behaved as expected.
+| Field | Details |
+|---|---|
+| Affected module | Products / product images |
+| Test case | `test_PROD010_problem_user_images` |
+| Status | Observed during automation; recorded for evaluation |
+| Evidence | [08_problem_user_images.png](../07_Screenshots/08_problem_user_images.png) |
 
-## Testing Areas Covered
+**Precondition:** The SauceDemo site is available and the `problem_user`
+credentials can be used to log in.
 
-| Test Scenario | Actual Result | Status |
-|---|---|---|
-| Valid login | Products page opened successfully | PASS |
-| Invalid username | Appropriate error message displayed | PASS |
-| Invalid password | Appropriate error message displayed | PASS |
-| Empty username | Username required message displayed | PASS |
-| Empty password | Password required message displayed | PASS |
-| Both login fields empty | Username required message displayed | PASS |
-| Empty first name during checkout | Validation message displayed | PASS |
-| Empty last name during checkout | Validation message displayed | PASS |
-| Empty postal code during checkout | Validation message displayed | PASS |
-| Complete shopping flow | Order confirmation displayed | PASS |
+**Steps to reproduce:**
+1. Open https://www.saucedemo.com/.
+2. Log in using the `problem_user` credentials configured for the tests.
+3. Open the products page and inspect the product images.
 
-## Conclusion
+**Expected result:** Each product displays its corresponding image.
 
-No defects were identified in the executed test scenarios. All tested functionalities produced the expected results.
+**Actual result:** All six product images show the same missing-image
+placeholder. This was detected by the automated test on 2026-11-18.
 
-Further testing may be required to identify defects in functionalities and scenarios not covered by this testing activity.
+**Impact:** Product imagery is unavailable for this account, making products
+harder to identify visually. This observation is specific to the tested
+`problem_user` account and does not establish that other accounts are affected.
+
+## Other Tested Scenarios
+
+The previous manual execution record reports these scenarios as passing:
+
+| Test Scenario | Recorded Result |
+|---|---|
+| Valid and invalid login inputs | PASS |
+| Empty login fields | PASS |
+| Checkout required-field validation | PASS |
+| Complete shopping flow | PASS |
+
+The manual results are historical and separate from the automated run. See the
+[test execution report](../03_Test_Execution/Test_Execution_Report.md) for
+their counts and the automated suite result.

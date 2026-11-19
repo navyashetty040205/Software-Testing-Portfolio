@@ -49,3 +49,36 @@ The application allows users to log in, browse products, add products to the sho
 
 ## Expected Outcome
 To evaluate the functionality of the online shopping application, identify defects and understand practical software testing activities.
+
+## Run the automated tests
+
+From the repository root in PowerShell:
+
+```powershell
+py -m venv .venv
+.\.venv\Scripts\Activate.ps1
+py -m pip install -r 05_Test_Automation\requirements.txt
+py -m pytest
+```
+
+Chrome must be installed. Tests run headlessly by default; add `--headed` to
+show the browser window:
+
+```powershell
+py -m pytest --headed
+```
+
+The last recorded run (2026-11-18) collected 57 tests: 56 passed and 1 failed.
+The known failure checks missing product images for SauceDemo's `problem_user`
+account. See the [test execution report](03_Test_Execution/Test_Execution_Report.md)
+and [defect report](04_Defect_Reports/Defect_Report.md).
+
+## Portfolio folders
+
+- `01_Test_Plan` — test plan
+- `02_Test_Case_Design` — testing-technique documents
+- `03_Test_Execution` — execution details
+- `04_Defect_Reports` — documented findings
+- `05_Test_Automation` — Selenium tests and supporting code
+- `06_Test_Reports` — summary report
+- `07_Screenshots` — test evidence
