@@ -1,9 +1,15 @@
 
 # Software Testing Portfolio
 
-## Student Details
+## Students Details
 - **Name:** Navya P Shetty
 - **USN:** [1MS23IS075]
+- **Name:** Natasha Maria Brito
+- **USN:** [1MS22IS086]
+- **Name:** Mahi Lohiya
+- **USN:** [1MS23IS062]
+- **Name:** Akshar K
+- **USN:** [1MS23IS007]
 - **College:** [MS RAMAIAH INSTITUTE OF TECHNOLOGY]
 - **Subject:** Software Testing
 
