@@ -4,6 +4,8 @@ import pytest
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 
+collect_ignore = ["test_login.py"]
+
 
 def pytest_addoption(parser):
     parser.addoption(

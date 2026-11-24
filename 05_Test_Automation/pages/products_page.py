@@ -57,6 +57,8 @@ class ProductsPage(BasePage):
 
     def add_product(self, button_id):
         self.wait.until(EC.element_to_be_clickable((By.ID, button_id))).click()
+        remove_button_id = button_id.replace("add-to-cart-", "remove-", 1)
+        self.wait.until(EC.visibility_of_element_located((By.ID, remove_button_id)))
 
     def remove_product(self, button_id):
         self.wait.until(EC.element_to_be_clickable((By.ID, button_id))).click()
